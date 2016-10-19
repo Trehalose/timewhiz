@@ -1,0 +1,24 @@
+<section class="row">
+  <div class="col-md-4">
+    <form class="form-horizontal" novalidate ng-submit="registerCtrl.submitForm()">
+      <div class="form-group">
+        <label for="reg-fullname">Full Name: </label>
+        <input class="form-control" ng-model="registerCtrl.newUser.fullname" id="reg-fullname" type="text" required />
+      </div>
+      <div class="form-group">
+        <label for="reg-username">Username: </label>
+        <input class="form-control" ng-model="registerCtrl.newUser.username" id="reg-username" type="text" required />
+      </div>
+      <div class="form-group">
+        <label for="reg-password">Password: </label>
+        <input class="form-control" ng-model="registerCtrl.newUser.password" id="reg-password" type="password" required />
+      </div>
+      <div class="form-group">
+        <input ng-model="registerCtrl.newUser.termsAgree" id="reg-terms-agree" type="checkbox" required /> <label for="reg-terms-agree">"I, {{registerCtrl.newUser.fullname}}, agree to the TimeWhiz!" <span></span></label>
+      </div>
+      <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Register" />
+      </div>
+    </form>
+  </div>
+</section>

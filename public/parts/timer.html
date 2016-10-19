@@ -1,0 +1,47 @@
+<div ng-hide="timerCtrl.timer.checkTimed()" class="timer container-fluid">
+  <h3 ng-hide="timerCtrl.isLoggedIn()">Try it out!</h3>
+  <h3 id="timeLoader" ng-show="timerCtrl.timer.checkTiming()">...Timing...</h3>
+  <br ng-show="timerCtrl.isLoggedIn() && !timerCtrl.timer.checkTiming()" />
+  <button class="btn btn-warning the-big-btn" ng-class="{'btn-timing':timerCtrl.timer.checkTiming()}" ng-hide="timerCtrl.timer.checkTimed()" ng-click="timerCtrl.buttonPress($event)">{{timerCtrl.timer.bigButton}}</button>
+</div>
+<form ng-show="timerCtrl.timer.checkTimed()" class="container-fluid brb-form">
+  <h3><span class="side-note">Your bathroom break lasted </span><br /><time>{{timerCtrl.brb.duration | wordTime}}!</time></h3>
+  <h4>What activities did you do on your trip?</h4>
+  <div class="row form-group">
+    <div class="col-md-6">
+      <div class="checkbox">
+        <input ng-model="timerCtrl.brb.activities.pee" type="checkbox" name="brb-activities" id="brb-pee" />
+        <label for="brb-pee"><span></span>Pee</label>
+      </div>
+      <div class="checkbox">
+        <input ng-model="timerCtrl.brb.activities.poo" type="checkbox" name="brb-activities" id="brb-poo" />
+        <label for="brb-poo"><span></span>Poo</label>
+      </div>
+      <div class="checkbox">
+        <input ng-model="timerCtrl.brb.activities.puke" type="checkbox" name="brb-activities" id="brb-puke" />
+        <label for="brb-puke"><span></span>Sickness</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="checkbox">
+        <input ng-model="timerCtrl.brb.activities.makeup" type="checkbox" name="brb-activities" id="brb-makeup" />
+        <label for="brb-makeup"><span></span>Hygiene</label>
+      </div>
+      <div class="checkbox">
+        <input ng-model="timerCtrl.brb.activities.escape" type="checkbox" name="brb-activities" id="brb-escape" />
+        <label for="brb-escape"><span></span>Break/Etc.</label>
+      </div>
+      <div class="checkbox">
+        <input ng-model="timerCtrl.brb.activities.fetish" type="checkbox" name="brb-activities" id="brb-fetish" />
+        <label for="brb-fetish"><span></span>Fetish Stuff</label>
+      </div>
+    </div>
+  </div>
+  <p ng-hide="timerCtrl.submittable()" class="pay-attention-here">Sorry! You can't save and compare BRBs without being a member.</p>
+  <div class="form-group">
+    <a class="btn btn-primary" role="button" href="/register" ng-hide="timerCtrl.submittable()">Sign Up!</a>
+    <a class="btn btn-warning" role="button" href="/login" ng-hide="timerCtrl.submittable()">Sign in</a>
+    <input class="btn btn-default" type="reset" ng-click="timerCtrl.timer.clearTimer()" value="Clear Timer" />
+    <input class="btn btn-primary" type="submit" ng-show="timerCtrl.submittable()" value="Log My Trip!" ng-click="timerCtrl.logTime()" />
+  </div>
+</form>

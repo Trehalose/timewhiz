@@ -1,0 +1,17 @@
+<section class="row">
+  <div class="col-md-4">
+    <form class="form-horizontal" novalidate ng-submit="loginCtrl.submitForm()">
+      <div class="form-group">
+        <label for="log-username">Username: </label>
+        <input class="form-control" ng-model="loginCtrl.user.username" id="log-username" type="text" required />
+      </div>
+      <div class="form-group">
+        <label for="log-password">Password: </label>
+        <input class="form-control" ng-model="loginCtrl.user.password" id="log-password" type="password" required />
+      </div>
+      <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Login" />
+      </div>
+    </form>
+  </div>
+</section>

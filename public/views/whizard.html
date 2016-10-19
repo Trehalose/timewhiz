@@ -1,0 +1,41 @@
+<h2>All about {{whizCtrl.whizard.fullname}}'s BRBs</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-7  some-neat-stuff">
+      <h3>BRBs Today</h3>
+      <radar-chart getbrbs="whizCtrl.brbsToday"></radar-chart>
+    </div>
+    <div class="col-xs-12 col-md-5">
+      <timer></timer>
+    </div>
+  </div>
+</div>
+<div class="some-neat-stuff container-fluid">
+  <h3>Average Break Duration (in minutes)</h3>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <bar-chart whizardbrbs="whizCtrl.whizard.brbs" avgbrbs="whizCtrl.avgBrbs"></bar-chart>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <aside>
+          Did you know that bla bla bla bla bla?
+        </aside>
+      </div>
+    </div>
+</div>
+<div class="container-fluid some-neat-stuff">
+  <h3>
+    Over Time<span class=""> -- from <time>{{whizCtrl.timespan.min | date : dd/MMM/yyyy}}</time> to <time>{{whizCtrl.timespan.max | date : dd/MMM/yyyy}}</time></span>
+  </h3>
+  <form ng-submit="whizCtrl.setBrbTimespans()" class="form-inline">
+    <div class="form-group">
+      <input class="form-control" type="date" ng-model="whizCtrl.timespan.min" />
+      <input class="form-control" type="date" ng-model="whizCtrl.timespan.max" />
+    </div>
+    <input class="btn btn-info" type="submit" value="Show" />
+  </form>
+  <div class="row">
+    <line-chart brbs="whizCtrl.displayableBrbs.whizard" class="col-xs-12 col-md-6"></line-chart>
+    <line-chart brbs="whizCtrl.displayableBrbs.avg" class="col-xs-12 col-md-6"></line-chart>
+  </div>
+</div>

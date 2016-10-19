@@ -1,0 +1,36 @@
+<section class="row">
+  <div class="col-xs-12 col-md-6" ng-hide="homeCtrl.isLoggedIn()">
+    <h2>The power is yours!</h2>
+    <p>
+      TimeWhiz allows you to track and compare BathRoom Breaks anonymously
+      with state of the art time technology, and innovative charting software.
+    </p>
+  </div>
+  <div class="col-xs-12 col-md-6" ng-show="homeCtrl.isLoggedIn()">
+    <h3>Welcome back! <span class="side-note">Did you know...</span></h3>
+    <p>{{homeCtrl.randomFact}}</p>
+  </div>
+  <div class="col-xs-12 col-md-6 hang-low">
+    <timer></timer>
+  </div>
+</section>
+<section class="row three-good-things" ng-hide="homeCtrl.isLoggedIn()">
+  <div class="col-xs-12 col-sm-4 col-md-4 good-thing">
+    <h3>Track Improvements</h3>
+    <p>bha bha bha TBA</p>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 good-thing">
+    <h3>Compare to the Norms</h3>
+    <p>bha bha bha TBA</p>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 good-thing">
+    <h3>Save Time and Effort</h3>
+    <p>bha bha bha TBA</p>
+  </div>
+</section>
+<section class="row" ng-hide="homeCtrl.isLoggedIn()">
+  <div class="col-xs-12 col-md-12 center-item">
+    <h4>Now is the time to take control and know how you've really been spending your time!</h4>
+    <a class="btn btn-primary the-big-btn cta" role="button" href="/register">Become a TimeWhizard</a>
+  </div>
+</section>

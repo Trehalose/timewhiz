@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="TimeWhiz">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TimeWhiz: the app</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link rel="stylesheet" href="./skrips/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <base href="/" />
+  </head>
+  <body>
+    <header class="container">
+      <nav ng-controller="navController as navCtrl">
+        <h1><a href="/" class="navbar-brand"><img alt="TimeWhiz" ng-src="./imgs/timewhiz-logo.png" /></a></h1>
+        <ul class="nav nav-pills">
+          <li ng-show="navCtrl.isLoggedIn()"><a class="btn btn-default" role="presentation" href="/dashboard">{{navCtrl.getUserName()}}</a></li>
+          <li ng-show="navCtrl.isLoggedIn()"><a class="btn btn-default" role="presentation" href="" ng-click="navCtrl.logout()">Logout</a></li>
+          <li ng-hide="navCtrl.isLoggedIn()"><a class="btn btn-default" role="presentation" href="/register">Sign up</a></li>
+          <li ng-hide="navCtrl.isLoggedIn()"><a class="btn btn-default" role="presentation" href="/login">Sign in</a></li>
+        </ul>
+        <span class="breaker"></span>
+      </nav>
+    </header>
+    <section class="container" ng-view class=""></section>
+    <!--
+      <section class="container timing-apparatus">
+        <timer></timer>
+      </section>
+    -->
+    <footer class="container">
+      <a href="/about">About TimeWhiz</a>
+    </footer>
+    <!--The great scriptures-->
+    <script src="./skrips/angular/angular.min.js"></script>
+    <script src="./skrips/angular-route/angular-route.min.js"></script>
+    <script src="./skrips/angular-cookies/angular-cookies.min.js"></script>
+    <script src="./skrips/moment/min/moment.min.js"></script>
+    <script src="./skrips/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="/myuglycode.min.js"></script>
+  </body>
+</html>
